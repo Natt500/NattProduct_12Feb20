@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nattproduct/utility/my_style.dart';
+import 'package:nattproduct/widget/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -84,7 +85,15 @@ class _AuthenState extends State<Authen> {
         'Sign Up',
         style: TextStyle(color: Mystyle().textColor),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('You Click SignUp');
+        
+        MaterialPageRoute materialPageRoute = 
+        MaterialPageRoute(builder:(BuildContext buildContext) {
+         return Register();
+        });
+        Navigator.of(context).push(materialPageRoute);
+      },
     );
   }
 
