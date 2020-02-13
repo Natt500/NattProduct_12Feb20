@@ -138,12 +138,16 @@ class _RegisterState extends State<Register> {
             rePassword.isEmpty) {
           normalDialog(context, 'Have Space', 'Please Fill Every Blank');
         }else if (password == rePassword){
-
+          registerThred();
         } else{
           normalDialog(context, 'Password Not Math', 'Please type Password Math Re-Password');
         }
       },
     );
+  }
+
+  Future<void> registerThred()async{
+     String url='https://www.androidthai.in.th/feb13/addUserNatt.php?isAdd=true&Name=$name&User=$user&Password=$password';
   }
 
   @override
