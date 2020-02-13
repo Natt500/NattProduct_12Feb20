@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:nattproduct/utility/my_style.dart';
 import 'package:nattproduct/utility/normal_dialog.dart';
@@ -148,6 +149,21 @@ class _RegisterState extends State<Register> {
 
   Future<void> registerThred()async{
      String url='https://www.androidthai.in.th/feb13/addUserNatt.php?isAdd=true&Name=$name&User=$user&Password=$password';
+
+     try {
+       Response response = await Dio().get(url);
+       print('reponse=$response');
+
+       if(response.toString() == 'true'){
+       Navigator.of(context).pop();
+
+       }else{
+       normalDialog(context, 'Register False', 'Try Again Register Flase');
+       }
+       
+     } catch (e) {
+       
+     }
   }
 
   @override
